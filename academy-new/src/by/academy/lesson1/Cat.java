@@ -6,8 +6,9 @@ public class Cat {
 	String nickname;
 	double money;
 	char initials;
-	boolean isHomeAnimal;
-
+	boolean isHomeAnimal; 
+	
+	
 	public Cat() {
 	}
 
@@ -63,6 +64,13 @@ public class Cat {
 
 	public void setisHomeAnimal(boolean isHomeAnimal) {
 		this.isHomeAnimal = isHomeAnimal;
+		if (isHomeAnimal == false) {
+		       System.out.println(nickname + " is streetcat");
+		      }
+			else {
+			   System.out.println(nickname + " is homecat");
+			   
+			}
 		
 	}
 	public boolean isHomeAnimal() {
