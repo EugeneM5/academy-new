@@ -69,6 +69,7 @@ public class Cat {
 		      }
 			else {
 			   System.out.println(nickname + " is homecat");
+			   
 			}
 		
 	}

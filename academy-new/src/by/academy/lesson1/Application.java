@@ -16,7 +16,7 @@ public class Application {
 		nonamecat.grow(3);
 		nonamecat.catsage();
 		
-		cat.setMoney(2.12);
+		cat.setMoney(6.12);
 		cat.getMoney();		
 		System.out.println(cat.getMoney());
 		
