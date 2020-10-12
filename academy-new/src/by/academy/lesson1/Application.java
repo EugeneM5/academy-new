@@ -17,16 +17,15 @@ public class Application {
 		nonamecat.catsage();
 		
 		cat.setMoney(2.12);
-		cat.getMoney();
+		cat.getMoney();		
+		System.out.println(cat.getMoney());
 		
 		mycat.setInitials('M');
 		mycat.getInitials();
+		System.out.println("Initials of this cat " + mycat.getInitials());
 		
-		mycat.setisHomeAnimal(false);
+		mycat.setisHomeAnimal(true);
 		mycat.isHomeAnimal();
-		
-		System.out.println(cat.getMoney());
-		System.out.println(mycat.getInitials());
 		System.out.println("This cat is a home animal? answer: " + mycat.isHomeAnimal());
 		
 	}
