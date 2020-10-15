@@ -23,7 +23,7 @@ public class Application {
 		mycat.setInitials('M');
 		mycat.getInitials();
 		System.out.println("Initials of this cat " + mycat.getInitials());
-		
+		 
 		mycat.setisHomeAnimal(true);
 		mycat.isHomeAnimal();
 		System.out.println("This cat is a home animal? answer: " + mycat.isHomeAnimal());
