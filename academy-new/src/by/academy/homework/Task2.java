@@ -29,7 +29,7 @@ public class Task2 {
 		case "double":
 			System.out.println("Введите число с плавающей запятой ");
 			double b = in.nextDouble();
-			System.out.format("%3f", b);
+			System.out.println("70% от числа = " + b*0.7);
 			break;
 		case "float":
 			System.out.println("Введите число с плавающей запятой ");
