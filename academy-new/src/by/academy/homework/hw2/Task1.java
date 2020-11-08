@@ -12,8 +12,6 @@ public class Task1 {
 		String str = sc.nextLine();
 		System.out.println(" Введите строку 2 ");
 		String str1 = sc.nextLine();
-		if (str.length() != str1.length())
-			System.out.println(" Строки разные! ");
 
 		sc.close();
 
@@ -31,11 +29,11 @@ public class Task1 {
 				}
 			}
 		}
-		System.out.println(count);
+
 		if (count == str.length()) {
-			System.out.println(" Строка является перестановкой символов другой ");
+			System.out.println("Строка является перестановкой символов другой!");
 		} else
 
-			System.out.println(" Строки разные");
+			System.out.println("Строки разные!");
 	}
 }
