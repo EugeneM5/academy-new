@@ -9,20 +9,17 @@ public class Task0 {
 	// Complete the pairs function below.
 	static int pairs(int k, int[] arr) {
 		int pairsCount = 0;
-		for(int i = 0; i < arr.length; i++) {
-			for(int j = i + 1; j < arr.length; j++) {
-				if((arr[i] - arr[j] == k) || (arr[j] - arr[i] == k)) 
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				if ((arr[i] - arr[j] == k) || (arr[j] - arr[i] == k))
 					pairsCount++;
-				}
 			}
+		}
 
 		// write code here
 		return pairsCount;
 	}
 
-
-
-	
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
