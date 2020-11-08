@@ -2,7 +2,6 @@ package by.academy.homework.hw2;
 
 import java.util.Scanner;
 
-
 //Ввести две строки с консоли. Определить, является ли одна строка перестановкой символов другой строки. Учитываем регистр. Не использовать сортировку :) 
 public class Task1 {
 
@@ -17,7 +16,7 @@ public class Task1 {
 			System.out.println(" Строки разные! ");
 
 		sc.close();
-		
+
 		char[] a = str.toCharArray();
 
 		char[] b = str1.toCharArray();
