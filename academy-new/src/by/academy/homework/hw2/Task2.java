@@ -13,36 +13,38 @@ public class Task2 {
 
 		Scanner in = new Scanner(System.in);
 		System.out.println("Введите слова через пробел ");
-		
-		String s = in.nextLine();
-		
-		System.out.println(Arrays.toString(s.split(" +")));
-		
-		
-		
-		
-		
-		
-		
-		
-	/*	System.out.println("Введите планируемое колличество слов");
-		int n = in.nextInt();
-		String[] arr = new String[n];
-		System.out.println("Введите слово ");
-		
-		arr[0] = in.nextLine();
-		char[] a = arr[0].toCharArray();
-		
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = in.nextLine();
-			
-			System.out.println("Введите слово ");
-			
-		}
-		System.out.println(Arrays.toString(arr));
-		
-	*/	
-	}
-	
 
+		String text = new String(in.nextLine());
+		String[] word = text.split(" ");
+
+		int count = 0;
+		int temp = 0;
+		int g = 0;
+		for (int i = 0; i < word.length; i++) {
+			System.out.println(word[i]);
+			g = i;
+		}
+
+		int n = 0;
+		while (n <= g) {
+
+			System.out.println("Номер слова " + n);
+			char[] ch = word[n].toCharArray();
+			for (int j = 0; j < ch.length - 1; j++) {
+				if (ch[j] == ch[j + 1]) {
+					continue;
+				} else {
+					count++;
+
+				}
+
+			}
+			System.out.println(Arrays.toString(ch));
+			System.out.println("в " + n + " слове число повторов " + count);
+			n++;
+		}
+
+	}
 }
+
+
