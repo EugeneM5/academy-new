@@ -15,6 +15,8 @@ public class Task1 {
 
 		sc.close();
 
+		System.out.println(str.equals(str1));
+
 		char[] a = str.toCharArray();
 
 		char[] b = str1.toCharArray();
