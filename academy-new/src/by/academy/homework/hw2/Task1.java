@@ -7,19 +7,16 @@ public class Task1 {
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println(" Введите строку 1 ");
-		String str = sc.nextLine();
-		System.out.println(" Введите строку 2 ");
-		String str1 = sc.nextLine();
+		Scanner scаnner = new Scanner(System.in);
+		System.out.println("Enter the first string ");
+		String firstString = scаnner.nextLine();
+		System.out.println("Enter the second string ");
+		String secondString = scаnner.nextLine();
+		scаnner.close();
 
-		sc.close();
+		char[] a = firstString.toCharArray();
 
-		System.out.println(str.equals(str1));
-
-		char[] a = str.toCharArray();
-
-		char[] b = str1.toCharArray();
+		char[] b = secondString.toCharArray();
 
 		int count = 0;
 
@@ -32,10 +29,10 @@ public class Task1 {
 			}
 		}
 
-		if (count == str.length()) {
-			System.out.println("Строка является перестановкой символов другой!");
-		} else
-
-			System.out.println("Строки разные!");
+		if (count == firstString.length()) {
+			System.out.println("String is a permutation of characters of another string. ");
+		} else {
+			System.out.println("Strings are different! ");
+		}
 	}
 }
