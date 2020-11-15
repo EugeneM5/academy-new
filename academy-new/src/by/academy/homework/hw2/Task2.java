@@ -1,6 +1,5 @@
 package by.academy.homework.hw2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 //Задание 2. 
@@ -13,7 +12,6 @@ public class Task2 {
 		System.out.println("Enter a few words separated by space ");
 
 		String[] words = (scanner.nextLine().split(" "));
-		System.out.println(Arrays.toString(words));
 		scanner.close();
 		int count = 0;
 		int max = 2;
@@ -31,7 +29,6 @@ public class Task2 {
 					}
 				}
 			}
-			System.out.println("*" + count);
 			if (count < max) {
 				max = count;
 				temp = element;
@@ -39,7 +36,7 @@ public class Task2 {
 			} else {
 				count = 0;
 			}
-			System.out.println(temp);
+			System.out.println("Word is " + temp);
 		}
 
 	}
