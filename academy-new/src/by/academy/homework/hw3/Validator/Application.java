@@ -7,8 +7,9 @@ import java.util.regex.Pattern;
 public class Application {
 
 	public static void main(String[] args) {
-		
+
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter some phone numbers(USA,Bel) or email");
 		String input = scanner.nextLine();
 		scanner.close();
 
@@ -17,30 +18,25 @@ public class Application {
 
 		Validator bel = new BelarusPhoneValidator();
 		bel.validate(input);
-		
+
 		Validator email = new EmailValidator();
 		email.validate(input);
 	}
 }
-		final class EmailValidator implements Validator {
-			
-			@Override
-			public boolean validate(String input) {
-				Pattern pattern = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
-				Matcher matcher = pattern.matcher(input);
-				boolean isValid = matcher.matches();
-				if (isValid == true) {
-				System.out.println("This is email? " + isValid);
-				} else {
-					System.out.println("Incorrect input! ");
-				}
-				return false;
-			}
 
-			
-			
+final class EmailValidator implements Validator {
 
+	@Override
+	public boolean validate(String input) {
+		Pattern pattern = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
+		Matcher matcher = pattern.matcher(input);
+		boolean isValid = matcher.matches();
+		if (isValid == true) {
+			System.out.println("This is email? " + isValid);
+		} else {
+			System.out.println("Incorrect input! ");
 		}
-	
+		return false;
+	}
 
-
+}
