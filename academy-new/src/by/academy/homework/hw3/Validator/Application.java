@@ -6,6 +6,23 @@ import java.util.regex.Pattern;
 
 public class Application {
 
+	public static class EmailValidator implements Validator {
+
+		@Override
+		public boolean validate(String input) {
+			Pattern pattern = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
+			Matcher matcher = pattern.matcher(input);
+			boolean isValid = matcher.matches();
+			if (isValid == true) {
+				System.out.println("This is email? " + isValid);
+			} else {
+				System.out.println("Incorrect input! ");
+			}
+			return false;
+		}
+
+	}
+
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
@@ -22,21 +39,4 @@ public class Application {
 		Validator email = new EmailValidator();
 		email.validate(input);
 	}
-}
-
-final class EmailValidator implements Validator {
-
-	@Override
-	public boolean validate(String input) {
-		Pattern pattern = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
-		Matcher matcher = pattern.matcher(input);
-		boolean isValid = matcher.matches();
-		if (isValid == true) {
-			System.out.println("This is email? " + isValid);
-		} else {
-			System.out.println("Incorrect input! ");
-		}
-		return false;
-	}
-
 }
