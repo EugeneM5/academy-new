@@ -1,13 +1,12 @@
 package by.academy.homework.hw3.Deal;
 
 public class Potato extends Product {
-	double weight;
+	public double weight;
 
 	public static final double POTATO_DISCOUNT = 0.7;
 
 	public Potato() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Potato(double price, String type, String producerName, int quantity, double weight) {
@@ -29,7 +28,7 @@ public class Potato extends Product {
 	}
 
 	protected double calcDiscount() {
-		if (producerName.contains("a")) {
+		if (producerName.contains("bel")) {
 			return POTATO_DISCOUNT;
 		} else {
 			return 1;

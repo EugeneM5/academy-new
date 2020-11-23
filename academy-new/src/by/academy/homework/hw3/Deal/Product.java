@@ -1,9 +1,6 @@
 package by.academy.homework.hw3.Deal;
 
-
-import java.io.Serializable;
-
-public abstract class Product implements Serializable {
+public abstract class Product {
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,16 +16,10 @@ public abstract class Product implements Serializable {
 	public Product(double price, String type, String producerName, int quantity) {
 		super();
 		this.price = price;
-		this.type = type;
 		this.producerName = producerName;
+		this.type = type;
 		this.quantity = quantity;
 	}
-
-	public final double calcTotalPrice() {
-		return quantity * price * discount();
-	}
-
-	public abstract double discount();
 
 	public double getPrice() {
 		return price;
@@ -36,6 +27,14 @@ public abstract class Product implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public String getProducerName() {
+		return producerName;
+	}
+
+	public void setProducerName(String name) {
+		this.producerName = name;
 	}
 
 	public String getType() {
@@ -46,14 +45,6 @@ public abstract class Product implements Serializable {
 		this.type = type;
 	}
 
-	public String getProducerName() {
-		return producerName;
-	}
-
-	public void setProducerName(String producerName) {
-		this.producerName = producerName;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -61,6 +52,12 @@ public abstract class Product implements Serializable {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public double calcTotalPrice() {
+		return quantity * price * discount();
+	}
+
+	public abstract double discount();
 
 	@Override
 	public int hashCode() {
@@ -115,5 +112,4 @@ public abstract class Product implements Serializable {
 		builder.append("]");
 		return builder.toString();
 	}
-
 }

@@ -1,10 +1,8 @@
 package by.academy.homework.hw3.Deal;
 
-import java.text.DateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public class Deal implements DealInterface {
-
 	public final static int DEFAULT_PRODUCT_SIZE = 2;
 
 	private String date;
@@ -40,12 +38,12 @@ public class Deal implements DealInterface {
 		this.seller = seller;
 	}
 
-	public Person getBuyer() {
+	public Person getByer() {
 		return buyer;
 	}
 
-	public void setBuyer(Person buyer) {
-		this.buyer = buyer;
+	public void setByer(Person byer) {
+		this.buyer = byer;
 	}
 
 	public Product[] getProducts() {
@@ -55,7 +53,7 @@ public class Deal implements DealInterface {
 	public void setProducts(Product[] products) {
 		this.products = products;
 	}
-
+	
 	@Override
 	public void addProduct(Product product) {
 
@@ -109,8 +107,8 @@ public class Deal implements DealInterface {
 	public void printProducts() {
 		for (int i = 0; i < productCounter; i++) {
 			Product p = products[i];
-			System.out.println("Name: " + p.getProducerName());
-			System.out.println("Type: " + p.getType());
+			System.out.println("Producer name: " + p.getProducerName());
+			System.out.println("Product: " + p.getType());
 			System.out.println("Total Price: " + p.calcTotalPrice());
 			System.out.println("-----------------");
 		}
@@ -128,14 +126,9 @@ public class Deal implements DealInterface {
 			printBill();
 		}
 	}
-	
-	public void deadLineDate() {
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, 10);
-
-        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
-        System.out.println(dateFormat.format(calendar.getTime()));
-    }
+	public void deadLine() {
+		LocalDate date = LocalDate.now();
+		System.out.println("Deadline: " + date.plusDays(10));
+	}
 
 }

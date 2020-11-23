@@ -3,7 +3,7 @@ package by.academy.homework.hw3.Deal;
 public class Onion extends Product {
 
 	public static final double ONION_DISCOUNT = 0.85;
-	public String color;
+	private String color;
 
 	public Onion() {
 		super();
