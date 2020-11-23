@@ -1,15 +1,10 @@
 package by.academy.homework.hw3.Deal;
 
 public class Milk extends Product {
-
 	public static final double MILK_DISCOUNT = 0.7;
 	private static int milkCount = 0;
 	private int nonStaticMilkCount = 0;
 	private String color;
-
-	public Milk() {
-		super();
-	}
 
 	public Milk(double price, String type, String name, int quantity, String color) {
 		super(price, type, name, quantity);
@@ -49,4 +44,5 @@ public class Milk extends Product {
 		}
 		return 1;
 	}
+
 }

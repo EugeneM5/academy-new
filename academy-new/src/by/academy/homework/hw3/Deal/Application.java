@@ -5,24 +5,26 @@ public class Application {
 	public static void main(String[] args) {
 		Person seller = new Person("Vasya", 200.00);
 		Person buyer = new Person("Petya", 300.00);
-		
-		Deal deal = new Deal("21-11-2020", seller, buyer);
 
-		Product[] products = new Product[4];
+		Deal deal = new Deal("22-11-2020", seller, buyer);
 
-		products[0] = new Meat(15.00, "meat", "Academy Bel", 7);
-		products[1] = new Onion(7.00, "vine", "peach", 7, "red");
-		products[2] = new Potato(2.00, "potato", "belarus", 5, 1.00);
-		products[3] = new Milk(3.00, "milk", "banana", 5, "white");
+		deal.addProduct(new Meat(9.00, "meat", "Russia", 7));
+		deal.addProduct(new Milk(2.00, "milk", "Belarus", 3, "white"));
+		deal.addProduct(new Onion(2.15,"onion","Africa",5,"red"));
+		deal.addProduct(new Potato(1.5,"potato","Belarus",10,2.30));
+
+		deal.printProducts();
+		System.out.println("---------------------------------------");
+
+		deal.deadLine();
+		deal.deleteProduct(4);
+		System.out.println("---------------------------------------");
+		deal.printProducts();
 		
-		deal.deadLineDate();
+		seller.emailValidator("seller@gmail.com");
+		buyer.belarusPhoneValidator("+375293697418");
 		seller.dateOfBirth();
-		deal.deal();
-		deal.deleteProduct(2);
-		deal.addProduct(new Meat(15.00, "meat", "Academy Bel", 7));
-		Person.belarusPhoneValidator("+375293586214");
 		
-
+		
 	}
-
 }
