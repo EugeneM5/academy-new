@@ -11,7 +11,11 @@ public class Magazine implements Printable {
 	}
 
 	public static void printMagazines(Printable[] array) {
-		System.out.println();
+		for (Printable item : array) {
+			if (item instanceof Magazine) {
+				System.out.println("The name of magazine: " + ((Magazine) item).getName());
+			}
+		}
 	}
 
 	public Magazine() {

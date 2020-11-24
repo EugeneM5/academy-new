@@ -20,6 +20,14 @@ public class Book implements Printable {
 		this.pagesCount = pagesCount;
 	}
 
+	public static void printBooks(Printable[] array) {
+		for (Printable item : array) {
+			if (item instanceof Book) {
+				System.out.println("The name of book: " + ((Book) item).getName());
+			}
+		}
+	}
+
 	public String getName() {
 		return name;
 	}
