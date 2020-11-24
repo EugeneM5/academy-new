@@ -19,15 +19,9 @@ public class Application {
 		for (Printable items : array) {
 			items.print();
 		}
-		for (Printable item : array) {
-			if (item instanceof Magazine) {
-				System.out.println("The name of magazine: " + ((Magazine) item).getName());
-			} else if (item instanceof Book) {
-				System.out.println("The name of book: " + ((Book) item).getName());
-			}
 
-		}
-
+		Magazine.printMagazines(array);
+		Book.printBooks(array);
 	}
 
 }
