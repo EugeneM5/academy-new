@@ -15,11 +15,12 @@ public class Deal implements DealInterface {
 		super();
 	}
 
-	public Deal(String date, Person seller, Person buyer) {
+	public Deal(String date, Person seller, Person buyer, Product[] products) {
 		super();
 		this.date = date;
 		this.seller = seller;
 		this.buyer = buyer;
+		this.products = products;
 	}
 
 	public String getDate() {
@@ -53,7 +54,7 @@ public class Deal implements DealInterface {
 	public void setProducts(Product[] products) {
 		this.products = products;
 	}
-	
+
 	@Override
 	public void addProduct(Product product) {
 
@@ -91,22 +92,23 @@ public class Deal implements DealInterface {
 		double summ = 0;
 		System.out.println("Сделка совершена ");
 		for (Product product : products) {
-			double totalProductPrice = product.getPrice() * product.getQuantity();
+			double totalProductPrice = product.getPrice() * product.getQuantity() * product.discount();//Добавил скидку
 			summ += totalProductPrice;
-			System.out.println("Имя: " + product.getProducerName() + " " + product.getPrice() + "X"
-					+ product.getQuantity() + "=" + totalProductPrice);
+			System.out.println("Имя: "+ product.getType() + " страна происхождения "  + product.getProducerName() + " " + product.getPrice() + "X"
+					+ product.getQuantity()  + "=" + totalProductPrice);
 		}
 		System.out.println("Сумма всей сделки " + summ);
 		buyer.setCash(buyer.getCash() - summ);
 		seller.setCash(seller.getCash() + summ);
-		System.out.println("Деньги покупателя " + buyer.getCash());
-		System.out.println("Деньги продавца " + seller.getCash());
+		System.out.println("Имя покупателя " + buyer.getName() + " Деньги покупателя " + buyer.getCash());
+		System.out.println("Имя продавца " + seller.getName() + " Деньги продавца " + seller.getCash());
 
 	}
 
 	public void printProducts() {
 		for (int i = 0; i < productCounter; i++) {
 			Product p = products[i];
+			System.out.println("Count: " + p.getQuantity());
 			System.out.println("Producer name: " + p.getProducerName());
 			System.out.println("Product: " + p.getType());
 			System.out.println("Total Price: " + p.calcTotalPrice());
@@ -126,9 +128,12 @@ public class Deal implements DealInterface {
 			printBill();
 		}
 	}
+
 	public void deadLine() {
 		LocalDate date = LocalDate.now();
 		System.out.println("Deadline: " + date.plusDays(10));
 	}
+
+
 
 }

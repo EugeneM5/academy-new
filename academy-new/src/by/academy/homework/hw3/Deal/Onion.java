@@ -1,26 +1,17 @@
 package by.academy.homework.hw3.Deal;
 
+import by.academy.homework.hw3.Deal.annotation.Producer;
+
+@Producer(country = "New Zeland",founderName = "NewZelander",startYear = 1850)
+
 public class Onion extends Product {
 
 	public static final double ONION_DISCOUNT = 0.85;
 	private String color;
 
-	public Onion() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public Onion(double price, String type, String producerName, int quantity, String color) {
 		super(price, type, producerName, quantity);
 		this.color = color;
-	}
-
-	protected double calcDiscount() {
-		if (quantity > 10) {
-			return ONION_DISCOUNT;
-		} else {
-			return 1;
-		}
 	}
 
 	public String getColor() {
@@ -33,9 +24,10 @@ public class Onion extends Product {
 
 	@Override
 	public double discount() {
-		if (producerName == "Bel") {
+		if (quantity > 10) {
 			return ONION_DISCOUNT;
+		} else {
+			return 1;
 		}
-		return 1;
 	}
 }

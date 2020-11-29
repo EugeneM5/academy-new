@@ -2,8 +2,6 @@ package by.academy.homework.hw3.Deal;
 
 public abstract class Product {
 
-	private static final long serialVersionUID = 1L;
-
 	protected double price;
 	protected String type;
 	protected String producerName;
