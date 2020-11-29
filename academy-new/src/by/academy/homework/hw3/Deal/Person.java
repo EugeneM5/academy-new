@@ -1,12 +1,11 @@
 package by.academy.homework.hw3.Deal;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import by.academy.homework.hw3.Task3;
 import by.academy.homework.hw3.Validator.BelarusPhoneValidator;
 import by.academy.homework.hw3.Validator.Validator;
-import by.academy.homework.hw3.Task3;
 
 public class Person {
 
@@ -49,14 +48,8 @@ public class Person {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public static void dateOfBirth() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter your birthday date dd-MM-yyyy : ");
-		String birthDay = scanner.next();
-		scanner.close();
-
-		Task3 birthDate = new Task3();
-		System.out.println("dd-MM-yyyy - " + birthDate.testDate(birthDay));
+	public void dateOfBirth() {
+		System.out.println("dd-MM-yyyy - " + Task3.testDate(dateOfBirth));
 	}
 
 	public static boolean belarusPhoneValidator(String input) {

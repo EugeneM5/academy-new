@@ -1,38 +1,12 @@
 package by.academy.homework.hw3.Deal;
 
 public class Potato extends Product {
-	public double weight;
-
+	private double weight;
 	public static final double POTATO_DISCOUNT = 0.7;
-
-	public Potato() {
-		super();
-	}
-
+	
 	public Potato(double price, String type, String producerName, int quantity, double weight) {
 		super(price, type, producerName, quantity);
 		this.weight = weight;
-	}
-
-	public Potato(double weight) {
-		super();
-		this.weight = weight;
-	}
-
-	public double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}
-
-	protected double calcDiscount() {
-		if (producerName.contains("bel")) {
-			return POTATO_DISCOUNT;
-		} else {
-			return 1;
-		}
 	}
 
 	@Override
@@ -41,6 +15,14 @@ public class Potato extends Product {
 			return POTATO_DISCOUNT;
 		}
 		return 1;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 
 }
