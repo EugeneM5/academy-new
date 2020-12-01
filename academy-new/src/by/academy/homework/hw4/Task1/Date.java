@@ -1,6 +1,10 @@
 package by.academy.homework.hw4.Task1;
-// НУЖНО ДОПИЛИТЬ!!!!
-import java.util.Scanner;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //Задание 1.
 
@@ -14,118 +18,148 @@ import java.util.Scanner;
 
 public class Date {
 
-	public static class Year {
-		 public void bissextile() {
-			 
-             Scanner input = new Scanner(System.in);
-             int year = input.nextInt();
-             if (year % 4 == 0) {
-                 if (year % 100 == 0) {
-                     if (year % 400 == 0) {
-                         System.out.println("bissextile");
-                     }
-                 }
-             } else {
-                 System.out.println("not bissextile");
-             }
-             Year yearO = new Year();
-             yearO.bissextile();
-         }
-     }
- 
+	String date;
 
-	public static class Month {
-
-        public int getDays() {
-            Scanner input = new Scanner(System.in);
-            int month = 0;
-            String error;
-            System.out.println("Input the number of the month");
-            input = new Scanner(System.in);
-            int monthNum = input.nextInt();
-            switch (monthNum) {
- 
-                case 1:
-                    month = 31;
-                    break;
-                case 2:
-                    month = 28;
-                    break;
-                case 3:
-                    month = 31;
-                    break;
-                case 4:
-                    month = 30;
-                    break;
-                case 5:
-                    month = 31;
-                    break;
-                case 6:
-                    month = 30;
-                    break;
-                case 7:
-                    month = 31;
-                    break;
-                case 8:
-                    month = 31;
-                    break;
-                case 9:
-                    month = 30;
-                    break;
-                case 10:
-                    month = 31;
-                    break;
-                case 11:
-                    month = 30;
-                    break;
-                case 12:
-                    month = 31;
-                    break;
-                default:
-                    error = "wrong number";
-                    break;
-            }
-            return month;
-        }
-    }
-
-	public static class Day {
-		 public String dayOfTheWeek() {
-	            Scanner input = new Scanner(System.in);
-	            String day = "";
-	            input = new Scanner(System.in);
-	            int weekDayNum = input.nextInt();
-	 
-	            switch (weekDayNum) {
-	                case 1:
-	                    day = "Monday";
-	                case 2:
-	                    day = "Tuesday";
-	                case 3:
-	                    day = "Wednesday";
-	                case 4:
-	                    day = "Thursday";
-	                case 5:
-	                    day = "Friday";
-	                case 6:
-	                    day = "Saturday";
-	                case 7:
-	                    day = "Sunday";
-	            }
-	            return day;
-	        }
-	    
-
+	public Date() {
+		super();
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Date.Year year = new Date.Year();
-		
-		Date.Month month = new Date.Month();
-		Date.Day day = new Date.Day();
-		
+	public Date(String date) {// Один из конструкторов - строка в формате dd-mm-yyyy, добавить валидацию для
+								// этой строки.
+		super();
+		this.date = date;
+
+		Pattern pattern = Pattern.compile("(\\d{2}[\\-]){2}\\d{4}");
+		Matcher matcher = pattern.matcher(date);
+		if (matcher.find()) {
+			System.out.println("Date is correct! " + matcher.group());
+		}
+	}
+
+	public enum DateEnum {// День недели представить в виде перечисления.
+
+		MONDAY("Понедельник"), TUESDAY("Вторник"), WEDNESDAY("Среда"), THURSDAY("Четверг"), FRIDAY("Пятница"),
+		SATURDAY("Суббота"), SUNDAY("Воскресенье");
+
+		private String name;
+
+		DateEnum(String name) {
+			this.name = name;
+		}
+
+		public String getname() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+
+	public void getDayOfWeek(String input) throws ParseException {// Методы: задать дату, вывести на консоль день недели
+																	// по заданной дате.
+
+		Pattern pattern = Pattern.compile("(\\d{2}[\\-]){2}\\d{4}");
+		Matcher matcher = pattern.matcher(input);
+		if (matcher.find()) {
+			System.out.println("Date is correct! " + matcher.group());
+			String oldDateString = matcher.group();
+			SimpleDateFormat oldDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat newDateFormat = new SimpleDateFormat("EEEE", Locale.ENGLISH);
+
+			java.util.Date date = oldDateFormat.parse(oldDateString);
+			String result = newDateFormat.format(date);
+			System.out.println("Day of week is a " + result);
+		} else {
+			System.out.println("Incorrect date format! ");
+		}
+	}
+
+	public void isValid(String firstdate) {
+		Pattern pattern = Pattern.compile("(\\d{2}[\\-]){2}\\d{4}");
+		Matcher matcher = pattern.matcher(firstdate);
+		if (matcher.find()) {
+			System.out.println("Date is correct! " + matcher.group());
+		}
+	}
+
+	public class Year {
+		private String year;
+
+		public Year() {
+			super();
+		}
+
+		public Year(String year) {
+			super();
+			this.year = year;
+		}
+
+		public String getYear() {
+			return year;
+		}
+
+		public void setYear(String year) {
+			this.year = year;
+		}
+
+		public boolean isLeapYear(String year) {// Добавить метод, который проверяет высокосный ли год или нет.
+			int leapYear = Integer.parseInt(year);
+			if (leapYear % 4 == 0) {
+				return true;
+			}
+			if (leapYear % 100 == 0) {
+				return false;
+			}
+			if (leapYear % 400 == 0) {
+				return true;
+			}
+			return false;
+		}
+	}
+
+	public class Month {
+		String month;
+
+		public Month() {
+			super();
+		}
+
+		public Month(String month) {
+			super();
+			this.month = month;
+		}
+
+		public String getMonth() {
+			return month;
+		}
+
+		public void setMonth(String month) {
+			this.month = month;
+		}
+	}
+
+	public class Day {
+		String day;
+
+		public Day() {
+			super();
+		}
+
+		public Day(String day) {
+			super();
+			this.day = day;
+		}
+
+		public String getDay() {
+			return day;
+		}
+
+		public void setDay(String day) {
+			this.day = day;
+		}
+
 	}
 
 }
