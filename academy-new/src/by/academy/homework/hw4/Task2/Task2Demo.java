@@ -19,12 +19,15 @@ public class Task2Demo {
 		System.out.println("Array length is " + array1.getLength());
 		array1.removeIndex(1);
 		array1.printArray();
+		System.out.println("Array length is " + array1.getLength());
 		array1.removeValue(10);
+		array1.printArray();
+		System.out.println("Array length is " + array1.getLength());
 		array1.printArray();
 		array1.getIndexOfLast();
 		System.out.println("----------------------------------------");
 		
-		Task2<String> array = new Task2<>(2);
+		Task2<String> array = new Task2<>();
 		
 		array.add("Hello");
 		array.add("java");

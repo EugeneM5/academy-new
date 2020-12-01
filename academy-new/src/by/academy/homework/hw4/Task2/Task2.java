@@ -9,8 +9,7 @@ public class Task2<T> {
 
 	public static final int DEFAULT_ARRAY_SIZE = 4;
 	private T[] array;
-	int arraySize;
-	int arrayLength;
+	private int arraySize;
 
 	public Task2() {
 		array = (T[]) new Object[16];
@@ -18,7 +17,6 @@ public class Task2<T> {
 
 	public Task2(int arrayLength) {
 		super();
-		this.arrayLength = arrayLength;
 		array = (T[]) new Object[arrayLength];
 	}
 
@@ -66,12 +64,13 @@ public class Task2<T> {
 
 	public void removeIndex(int i) { // 7) удаление элемента по индексу (remove(int i)
 		if ((i < array.length) && (i >= 0)) {
-			for (int k = i; k < array.length - 1; k++) // сдвиг последующих элементов
-				array[k] = array[k + 1];
+			for (int k = i; k < array.length - 1; k++) {
+				array[k] = array[k + 1]; // сдвиг последующих элементов
+			}
+			T[] tempArray = (T[]) (new Object[array.length - 1]);
+			System.arraycopy(array, 0, tempArray, 0, array.length - 1);
+			array = tempArray;
 		}
-		T[] tempArray = (T[]) (new Object[array.length - 1]);
-		System.arraycopy(array, 0, tempArray, 0, array.length - 1);
-		array = tempArray;
 	}
 
 	public void removeValue(T obj) { // 8) удаление элемента по значению (remove(T obj))
