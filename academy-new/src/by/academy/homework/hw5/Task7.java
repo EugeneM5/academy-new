@@ -59,17 +59,17 @@ public class Task7 {
 	}
 
 	// Complete the reverse function below.
-
-	/*
-	 * For your reference:
-	 *
-	 * DoublyLinkedListNode { int data; DoublyLinkedListNode next;
-	 * DoublyLinkedListNode prev; }
-	 *
-	 */
 	public static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
+		DoublyLinkedListNode prev = null;
+		DoublyLinkedListNode next;
+		while (head != null) {
+			next = head.next;
+			head.next = prev;
+			prev = head;
+			head = next;
+		}
+		return prev;
 
-		return null;
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
