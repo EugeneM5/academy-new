@@ -9,15 +9,14 @@ import java.util.HashSet;
 public class Task1 {
 
 	public static <T> Collection<T> noDuplicates(Collection<T> collection) {
-		return new HashSet<>(collection); //Т.к. класс реализует интерфейс Set, он может хранить только уникальные значения;
+		return new HashSet<>(collection); // Т.к. класс реализует интерфейс Set, он может хранить только уникальные значения;
 	}
 
 	public static void main(String[] args) {
 		ArrayList<Integer> arrayList = new ArrayList<>();
-		arrayList.add(10);
-		arrayList.add(10);
-		arrayList.add(20);
-		arrayList.add(10);
+		for (int i = 0; i < 20; i++) {
+			arrayList.add(i, (int) (Math.random() * 10 + 1));
+		}
 
 		System.out.println(arrayList.toString());
 		System.out.println(Task1.noDuplicates(arrayList));
