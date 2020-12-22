@@ -10,7 +10,7 @@ public class Task1 {
 //	Задание 1. 
 //	Прочесть информацию введеную из клавиатури и записать в созданный вами txt файл, 
 //	если введена "stop" строка тогда закончить запись в файл.
-
+	public static final String OUTPUT_FILE_PATH = "C:\\Users\\User\\git\\academy-new\\academy-new\\src\\by\\academy\\homework\\hw6\\Task1\\task1.txt";
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
@@ -25,8 +25,7 @@ public class Task1 {
 			dir.mkdir();
 		}
 
-		File output = new File(
-				"C:\\Users\\User\\git\\academy-new\\academy-new\\src\\by\\academy\\homework\\hw6\\Task1\\task1.txt");
+		File output = new File(OUTPUT_FILE_PATH);
 		if (!output.exists()) {
 			try {
 				output.createNewFile();
@@ -35,7 +34,7 @@ public class Task1 {
 			}
 		}
 
-		try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:\\Users\\User\\git\\academy-new\\academy-new\\src\\by\\academy\\homework\\hw6\\Task1\\task1.txt"))) {
+		try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH))) {
 			for (String word : text) {
 				if (word.equals("stop")) {
 					System.out.println("Record STOP, please check file...");
