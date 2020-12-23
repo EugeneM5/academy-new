@@ -1,0 +1,1 @@
+User [firstName=Vasya, lastName=Second, age=22]
