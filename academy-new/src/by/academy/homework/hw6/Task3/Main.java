@@ -1,8 +1,10 @@
 package by.academy.homework.hw6.Task3;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -42,9 +44,15 @@ public class Main {
 					System.err.println(e.getMessage());
 				}
 			}
-			try (FileWriter filewriter = new FileWriter(file)) {
+			try (FileWriter filewriter = new FileWriter(file)) { // здесь идет запись инфы о User в файл из переопределенного toString
 				filewriter.write(user.toString());
 			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
+			try (FileOutputStream outputStream = new FileOutputStream(file); /// Без блока сериализации в файл получаем красивое описание, а с ним иероглифы
+					ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);) {// файлы на гите залиты красивые, до сериализации
+				objectOutputStream.writeObject(user);
+			} catch (Exception e) {
 				System.err.println(e.getMessage());
 			}
 		}
